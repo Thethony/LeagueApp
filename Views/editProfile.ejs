@@ -1,0 +1,33 @@
+<div class="container  mt-3  col-4 offset-4">
+    <div class="card ">
+      <div class="card-body">
+        <h2 class="card-title text-center">Edit Profile</h5>
+          <form method="POST" action="/profile">
+            <input type="hidden" class="form-control" id="id" value="<%- profile._id %>" name="id" required />
+
+            <div>
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" value="<%- profile.name %>" name="name" required />
+            </div>
+            <div>
+              <label for="rank" class="form-label">Rank</label>
+              <input type="text" class="form-control" id="rank" value="<%- profile.rank %>" name="rank" required />
+            </div>
+            <div>
+              <label for="wins" class="form-label">Wins</label>
+              <input type="number" class="form-control" id="wins" value="<%- profile.wins %>" name="wins" required />
+            </div>
+            <div>
+              <label for="champion" class="form-label">Champion</label>
+              <input type="text" class="form-control" id="champion" value="<%- profile.champion %>" name="champion"
+                required />
+
+            </div>
+            <div class="d-grid gap-2 mt-4">
+              <input type="submit" class="btn btn-block btn-primary" value="Update Profile"></input>
+            </div>
+          </form>
+      </div>
+    </div>
+
+  </div>

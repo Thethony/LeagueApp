@@ -1,7 +1,7 @@
 // Dependencies
 const express = require("express");
 const mongoose = require('mongoose')
-
+const profileRoutes = require('./Controllers/profileRoutes');
 // Initialize app
 const LeagueApp = express();
 // Configure Settings
@@ -20,6 +20,13 @@ db.on('connected', () => {
 db.on('error', (error) => {
   console.log(`An Error Occurred with MangoDB ${error.message}`)
 })
+// Middleware
+LeagueApp.use(express.urlencoded({
+    extended: true
+  }));
+LeagueApp.use(express.static("public"));
+LeagueApp.use(profileRoutes);
+
 
 // Listen to port
 LeagueApp.listen(PORT, function () {
