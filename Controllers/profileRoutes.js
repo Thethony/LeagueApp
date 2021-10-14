@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router({
     mergeParams: true
 });
+const profileService = require("../Script/profileService");
 // routes to add profile
 router.get("/addProfile", async (req, res) => {
     try {

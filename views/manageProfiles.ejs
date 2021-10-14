@@ -1,0 +1,61 @@
+<%- include("header") -%>
+<%- include("navbar") -%>
+<% if(msg){ %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+<div class="container  mt-3">
+    <div class="card ">
+        <div class="card-body">
+            <h2 class="card-title text-center">Manage Profiles</h5>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Summoner Name</th>
+                            <th scope="col">Rank</th>
+                            <th scope="col">Wins</th>
+                            <th scope="col">Champion</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% for( let index=0; index < profiles.length; index++ ) { %>
+                        <tr>
+                            <td>
+                                <%- profiles[index].name %>
+                            </td>
+                            <td>
+                                <%- profiles[index].rank %>
+                            </td>
+
+                            <td>
+                                <%- profiles[index].wins %>
+                            </td>
+                            <td>
+                                <%- profiles[index].champion %>
+                            </td>
+
+
+                            <td>
+                                <a class="btn btn-outline-primary btn-sm"
+                                    href="/editprofile/<%- profiles[index]._id %>">Edit</a>
+                                <a class="btn btn-outline-danger btn-sm"
+                                    href="/deleteprofile/<%- profiles[index]._id %>">Delete</a>
+                            </td>
+
+                        </tr>
+                        <% } %>
+
+
+
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+</div>
+<%- include("footer") -%>
